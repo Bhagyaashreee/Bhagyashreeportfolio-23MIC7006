@@ -19,10 +19,10 @@ export default function Hero() {
         </p>
         <div className="hero-actions">
           <Magnetic>
-            <a href="#projects" className="btn btn-primary">View Projects</a>
+            <a href="#projects" className="btn btn-primary" data-cursor="button">View Projects</a>
           </Magnetic>
           <Magnetic>
-            <a href="#about" className="btn btn-glass">About Me</a>
+            <a href="#about" className="btn btn-glass" data-cursor="button">About Me</a>
           </Magnetic>
         </div>
       </Reveal>

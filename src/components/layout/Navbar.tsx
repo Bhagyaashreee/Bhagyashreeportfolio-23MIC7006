@@ -17,13 +17,13 @@ export default function Navbar() {
     <nav id="navbar" className={scrolled ? "scrolled" : ""}>
       <a href="#" className="nav-logo">Bhagyashree</a>
       <div className="nav-links">
-        <a href="#about">Story</a>
-        <a href="#experience">Journey</a>
-        <a href="#tools">Tools</a>
-        <a href="#projects">Projects</a>
+        <a href="#about" data-cursor="link">Story</a>
+        <a href="#experience" data-cursor="link">Journey</a>
+        <a href="#tools" data-cursor="link">Tools</a>
+        <a href="#projects" data-cursor="link">Projects</a>
       </div>
       <Magnetic>
-        <a href="#contact" className="btn btn-primary nav-cta">Let's Connect</a>
+        <a href="#contact" className="btn btn-primary nav-cta" data-cursor="button">Let's Connect</a>
       </Magnetic>
     </nav>
   );

@@ -1,27 +1,48 @@
 "use client";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 export default function Magnetic({ children }: { children: React.ReactElement }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
 
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let animationFrameId: number;
+    let isHovering = false;
+
+    const render = () => {
+      // Lerp (spring interpolation)
+      currentX += (targetX - currentX) * 0.1;
+      currentY += (targetY - currentY) * 0.1;
+      
+      node.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+      if (isHovering || Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const { left, top, width, height } = node.getBoundingClientRect();
-      const x = (clientX - (left + width / 2)) * 0.3;
-      const y = (clientY - (top + height / 2)) * 0.3;
-      setPosition({ x, y });
+      targetX = (clientX - (left + width / 2)) * 0.3;
+      targetY = (clientY - (top + height / 2)) * 0.3;
+      if (!isHovering) {
+        isHovering = true;
+        render();
+      }
     };
 
     const handleMouseLeave = () => {
-      setPosition({ x: 0, y: 0 });
-      if (node) {
-        node.style.transform = `translate(0px, 0px)`;
-      }
+      targetX = 0;
+      targetY = 0;
+      isHovering = false;
+      render();
     };
 
     node.addEventListener("mousemove", handleMouseMove);
@@ -30,18 +51,12 @@ export default function Magnetic({ children }: { children: React.ReactElement })
     return () => {
       node.removeEventListener("mousemove", handleMouseMove);
       node.removeEventListener("mouseleave", handleMouseLeave);
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <div
-      ref={ref}
-      style={{
-        display: "inline-block",
-        transform: `translate(${position.x}px, ${position.y}px)`,
-        transition: "transform 0.1s linear",
-      }}
-    >
+    <div ref={ref} style={{ display: "inline-block", willChange: "transform" }}>
       {children}
     </div>
   );

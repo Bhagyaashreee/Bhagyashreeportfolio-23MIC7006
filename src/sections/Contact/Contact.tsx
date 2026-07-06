@@ -32,9 +32,9 @@ export default function Contact() {
             or just want to say hello—my inbox is always open. Let's create secure, intelligent solutions together.
           </p>
           <div className="elegant-socials">
-            <Magnetic><a href="mailto:jagadiesh0009@gmail.com">jagadiesh0009@gmail.com</a></Magnetic>
-            <Magnetic><a href="#">LinkedIn</a></Magnetic>
-            <Magnetic><a href="#">GitHub</a></Magnetic>
+            <Magnetic><a href="mailto:jagadiesh0009@gmail.com" data-cursor="link">jagadiesh0009@gmail.com</a></Magnetic>
+            <Magnetic><a href="#" data-cursor="link">LinkedIn</a></Magnetic>
+            <Magnetic><a href="#" data-cursor="link">GitHub</a></Magnetic>
           </div>
         </Reveal>
 
@@ -53,7 +53,7 @@ export default function Contact() {
               <textarea id="message" name="message" placeholder="Message" required></textarea>
             </div>
             <Magnetic>
-              <button type="submit" className="btn btn-primary" style={{ width: "100%" }} disabled={loading}>
+              <button type="submit" className="btn btn-primary" style={{ width: "100%" }} disabled={loading} data-cursor="button">
                 {loading ? <span className="loader"></span> : "Send Message"}
               </button>
             </Magnetic>

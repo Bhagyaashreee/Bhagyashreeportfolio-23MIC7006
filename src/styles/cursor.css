@@ -1,0 +1,122 @@
+/* cursor.css */
+body:not(.touch-device) {
+  cursor: none !important;
+}
+
+body:not(.touch-device) * {
+  cursor: none !important;
+}
+
+.cursor-wrapper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: exclusion; /* Optional: adds to the premium feel, but can be removed if it breaks colors */
+}
+
+/* Base Dot */
+.cursor-dot {
+  position: absolute;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  margin-top: -4px; margin-left: -4px;
+  box-shadow: 0 0 10px var(--accent);
+  transition: transform 0.05s linear, opacity 0.3s;
+  will-change: transform;
+}
+
+/* Base Ring */
+.cursor-ring {
+  position: absolute;
+  top: 0; left: 0;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 50%;
+  margin-top: -16px; margin-left: -16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: width 0.3s var(--ease), height 0.3s var(--ease), margin 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease), border-radius 0.3s var(--ease);
+  will-change: transform, width, height;
+}
+
+.cursor-text {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   CURSOR STATES
+   ========================================= */
+
+/* Button Hover */
+.state-button .cursor-ring {
+  width: 50px; height: 50px;
+  margin-top: -25px; margin-left: -25px;
+  background: rgba(166, 30, 59, 0.1);
+  border-color: rgba(166, 30, 59, 0.6);
+  box-shadow: 0 0 20px rgba(166, 30, 59, 0.4);
+}
+.state-button .cursor-dot {
+  transform: scale(1.5);
+  background: var(--gold);
+  box-shadow: 0 0 15px var(--gold);
+}
+
+/* Project Card Hover */
+.state-project .cursor-ring {
+  width: 120px; height: 120px;
+  margin-top: -60px; margin-left: -60px;
+  background: transparent;
+  border: 1px solid rgba(214, 181, 110, 0.2);
+  mix-blend-mode: normal;
+}
+.state-project .cursor-dot {
+  opacity: 0; /* Hide dot */
+}
+
+/* Link Hover */
+.state-link .cursor-ring {
+  width: 70px; height: 32px;
+  margin-top: -16px; margin-left: -35px;
+  border-radius: 100px;
+  background: var(--text);
+  border-color: var(--text);
+  mix-blend-mode: normal;
+}
+.state-link .cursor-text {
+  opacity: 1;
+  color: var(--bg);
+}
+.state-link .cursor-dot {
+  opacity: 0;
+}
+
+/* Image Hover */
+.state-image .cursor-ring {
+  width: 80px; height: 80px;
+  margin-top: -40px; margin-left: -40px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-color: rgba(255, 255, 255, 0.8);
+  animation: cursorPulse 2s infinite var(--ease);
+}
+.state-image .cursor-dot {
+  opacity: 0;
+}
+
+@keyframes cursorPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
