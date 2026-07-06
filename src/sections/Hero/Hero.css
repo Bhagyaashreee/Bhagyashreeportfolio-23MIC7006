@@ -1,0 +1,64 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6rem;
+  position: relative;
+  z-index: 10;
+}
+.hero-left {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-title {
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.hero-role {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  color: var(--text);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 3rem;
+  max-width: 500px;
+}
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  perspective: 1000px;
+}
+.portrait-frame {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 3/4;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  border: 1px solid var(--glass-border);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}

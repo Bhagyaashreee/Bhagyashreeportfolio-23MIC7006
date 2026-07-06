@@ -1,0 +1,17 @@
+:root {
+  --bg: #13070A;
+  --surface: #1B0B10;
+  --primary: #4A0E1A;
+  --accent: #A61E3B;
+  --gold: #D6B56E;
+  --text: #F8F7F4;
+  --muted: #A39699;
+  
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}

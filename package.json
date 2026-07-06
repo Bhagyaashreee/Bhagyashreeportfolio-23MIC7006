@@ -1,0 +1,38 @@
+{
+    "name":  "b-portfolio",
+    "version":  "1.0.0",
+    "description":  "",
+    "main":  "index.js",
+    "scripts":  {
+                    "lint":  "next lint",
+                    "build":  "next build",
+                    "dev":  "next dev",
+                    "start":  "next start"
+                },
+    "repository":  {
+                       "type":  "git",
+                       "url":  "git+https://github.com/Bhagyaashreee/Bhagyashreeportfolio.git"
+                   },
+    "keywords":  [
+
+                 ],
+    "author":  "",
+    "license":  "ISC",
+    "bugs":  {
+                 "url":  "https://github.com/Bhagyaashreee/Bhagyashreeportfolio/issues"
+             },
+    "homepage":  "https://github.com/Bhagyaashreee/Bhagyashreeportfolio#readme",
+    "dependencies":  {
+                         "next":  "^16.2.10",
+                         "react":  "^19.2.7",
+                         "react-dom":  "^19.2.7"
+                     },
+    "devDependencies":  {
+                            "@types/node":  "^26.1.0",
+                            "@types/react":  "^19.2.17",
+                            "@types/react-dom":  "^19.2.3",
+                            "eslint":  "^9.39.4",
+                            "eslint-config-next":  "^16.2.10",
+                            "typescript":  "^6.0.3"
+                        }
+}

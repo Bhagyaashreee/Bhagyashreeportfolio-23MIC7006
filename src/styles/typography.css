@@ -1,0 +1,16 @@
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-serif); font-weight: 400; color: var(--text); }
+.serif { font-family: var(--font-serif); }
+.sans { font-family: var(--font-sans); }
+.mono { font-family: var(--font-mono); }
+.gold { color: var(--gold); }
+.text-center { text-align: center; }
+
+/* Section Typography */
+.subtitle {
+  font-family: var(--font-mono); font-size: 0.85rem; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.subtitle::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+
+.section-title { font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.1; margin-bottom: 4rem; text-align: center; }

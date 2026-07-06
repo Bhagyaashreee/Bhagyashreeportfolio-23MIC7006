@@ -1,0 +1,51 @@
+@import '../styles/variables.css';
+@import '../styles/typography.css';
+@import '../styles/utilities.css';
+@import '../styles/glass.css';
+@import '../styles/animations.css';
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg); color: var(--text);
+  font-family: var(--font-sans); font-weight: 300; line-height: 1.6;
+  overflow-x: hidden; cursor: crosshair; 
+}
+::selection { background: var(--gold); color: var(--bg); }
+
+/* Ambient Backgrounds */
+.ambient-bg { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+.ambient-blob { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.5; animation: floatBlob 20s infinite alternate var(--ease); }
+.blob-1 { width: 50vw; height: 50vw; background: var(--primary); top: -10vw; left: -10vw; }
+.blob-2 { width: 60vw; height: 60vw; background: var(--accent); bottom: -20vw; right: -10vw; animation-duration: 25s; animation-direction: alternate-reverse; opacity: 0.3; }
+
+.noise-overlay {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+  opacity: 0.05; mix-blend-mode: overlay;
+}
+.vignette { position: fixed; inset: 0; z-index: 9999; pointer-events: none; background: radial-gradient(circle, transparent 50%, rgba(19, 7, 10, 0.6) 100%); }
+
+/* Navbar */
+nav {
+  position: fixed; top: 2rem; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1000px;
+  background: rgba(27, 11, 16, 0.4); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px);
+  border: 1px solid var(--glass-border); border-radius: 100px; padding: 0.75rem 1.5rem;
+  display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+  transition: top 0.4s var(--ease), width 0.4s var(--ease), background 0.4s;
+}
+nav.scrolled { top: 1rem; width: 95%; background: rgba(27, 11, 16, 0.7); }
+.nav-logo { font-family: var(--font-serif); font-size: 1.25rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo::before { content: ''; display: block; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; }
+.nav-links { display: flex; gap: 2.5rem; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+
+/* Footer */
+footer { padding: 3rem 5%; display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); background: var(--bg); position: relative; z-index: 10; }
+
+@media (max-width: 768px) {
+  nav { padding: 0.75rem 1.5rem; }
+  .nav-links { display: none; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}

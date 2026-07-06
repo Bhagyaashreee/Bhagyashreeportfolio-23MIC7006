@@ -1,0 +1,23 @@
+.container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 1rem 2rem; border-radius: 100px; text-decoration: none;
+  font-family: var(--font-sans); font-size: 0.95rem; font-weight: 500;
+  transition: all 0.4s var(--ease); position: relative; overflow: hidden;
+  border: none; cursor: pointer;
+}
+.btn-primary { background: var(--primary); color: #fff; box-shadow: 0 10px 20px rgba(74, 14, 26, 0.3); }
+.btn-primary:hover { background: var(--accent); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(166, 30, 59, 0.4); }
+.btn-glass {
+  background: rgba(255, 255, 255, 0.05); color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+.btn-glass:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold); }
+.btn-sm { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+
+/* Global layout helpers */
+.grid { display: grid; }
+.flex { display: flex; }
