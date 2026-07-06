@@ -13,13 +13,17 @@ export default function Cursor() {
   const ring = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Check if device has touch capability, disable cursor if so
-    if (window.matchMedia("(pointer: coarse)").matches) {
+    let isTouch = false;
+    if (typeof window !== 'undefined' && (window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0)) {
+      isTouch = true;
       document.body.classList.add("touch-device");
-      return;
     }
 
     const onMouseMove = (e: MouseEvent) => {
+      if (isTouch) {
+        isTouch = false;
+        document.body.classList.remove("touch-device");
+      }
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
 

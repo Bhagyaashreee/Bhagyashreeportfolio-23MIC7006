@@ -11,8 +11,11 @@ body:not(.touch-device) * {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 10000;
-  mix-blend-mode: exclusion; /* Optional: adds to the premium feel, but can be removed if it breaks colors */
+  z-index: 999999;
+}
+
+.touch-device .cursor-wrapper {
+  display: none !important;
 }
 
 /* Base Dot */
