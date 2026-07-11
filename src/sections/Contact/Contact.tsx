@@ -16,10 +16,10 @@ export default function Contact() {
     
     if (form.current) {
       emailjs.sendForm(
-        'service_yrdf6fs', // Service ID
-        'template_0x97phz', // Template ID
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
         form.current,
-        'aASGa_9L9-Hu9eq94' // Public Key
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
       )
       .then(() => {
         setLoading(false);
