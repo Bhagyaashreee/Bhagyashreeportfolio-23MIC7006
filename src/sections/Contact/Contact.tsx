@@ -3,25 +3,25 @@ import "./Contact.css";
 import Reveal from "@/components/animations/Reveal";
 import Magnetic from "@/components/animations/Magnetic";
 import { useState, useRef } from "react";
-import emailjs from '@emailjs/browser';
+import { sendContactEmail } from "@/lib/emailjs";
+import { ToastState } from "@/types";
 
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
-  const [toast, setToast] = useState<{ show: boolean, type: string, message: string }>({ show: false, type: "", message: "" });
+  const [toast, setToast] = useState<ToastState>({ show: false, type: "", message: "" });
 
+  /**
+   * Handles the form submission by preventing default, 
+   * starting the loader, and sending the email.
+   */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     
     if (form.current) {
-      emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
-        form.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
-      )
-      .then(() => {
+      sendContactEmail(form.current)
+        .then(() => {
         setLoading(false);
         setToast({ show: true, type: "success", message: "Message sent successfully! I'll get back to you soon." });
         setTimeout(() => setToast({ show: false, type: "", message: "" }), 5000);

@@ -4,6 +4,13 @@
   --primary: #4A0E1A;
   --accent: #A61E3B;
   --gold: #D6B56E;
+  
+  /* Glow Colors for Portrait */
+  --glow-burgundy: #4a0e1e;
+  --glow-burgundy-rgb: 74, 14, 30;
+  --glow-gold: #d4af37;
+  --glow-gold-rgb: 212, 175, 55;
+
   --text: #F8F7F4;
   --muted: #A39699;
   
