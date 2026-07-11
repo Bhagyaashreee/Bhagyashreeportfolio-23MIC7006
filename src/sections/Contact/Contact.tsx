@@ -2,22 +2,37 @@
 import "./Contact.css";
 import Reveal from "@/components/animations/Reveal";
 import Magnetic from "@/components/animations/Magnetic";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
+  const form = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<{ show: boolean, type: string, message: string }>({ show: false, type: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate EmailJS
-    setTimeout(() => {
-      setLoading(false);
-      setToast({ show: true, type: "success", message: "Message sent successfully! I'll get back to you soon." });
-      setTimeout(() => setToast({ show: false, type: "", message: "" }), 5000);
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+    
+    if (form.current) {
+      emailjs.sendForm(
+        'service_yrdf6fs', // Service ID
+        'template_0x97phz', // Template ID
+        form.current,
+        'aASGa_9L9-Hu9eq94' // Public Key
+      )
+      .then(() => {
+        setLoading(false);
+        setToast({ show: true, type: "success", message: "Message sent successfully! I'll get back to you soon." });
+        setTimeout(() => setToast({ show: false, type: "", message: "" }), 5000);
+        (e.target as HTMLFormElement).reset();
+      }, (error) => {
+        console.error(error);
+        setLoading(false);
+        setToast({ show: true, type: "error", message: "Failed to send message. Please try again." });
+        setTimeout(() => setToast({ show: false, type: "", message: "" }), 5000);
+      });
+    }
   };
 
   return (
@@ -39,7 +54,7 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={0.2} className="contact-form-wrapper">
-          <form className="glass-form" onSubmit={handleSubmit}>
+          <form ref={form} className="glass-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <input type="text" id="name" name="name" placeholder="Full Name" required />
             </div>

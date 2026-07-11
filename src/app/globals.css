@@ -9,7 +9,7 @@ html { scroll-behavior: smooth; }
 body {
   background-color: var(--bg); color: var(--text);
   font-family: var(--font-sans); font-weight: 300; line-height: 1.6;
-  overflow-x: hidden; cursor: crosshair; 
+  overflow-x: hidden;
 }
 ::selection { background: var(--gold); color: var(--bg); }
 
