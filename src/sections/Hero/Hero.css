@@ -46,49 +46,39 @@
 }
 .portrait-frame {
   width: 100%;
-  max-width: 450px;
-  aspect-ratio: 3/4;
-  border-radius: 24px;
+  max-width: 600px;
   position: relative;
-  
-  /* Edge glow matching the image */
-  box-shadow: 
-    0 0 25px 5px rgba(var(--glow-gold-rgb), 0.5),
-    0 0 60px 20px rgba(var(--glow-burgundy-rgb), 0.4);
-    
-  transform-style: preserve-3d;
-  transition: transform 0.1s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Backlight glow */
+/* Backlight glow behind the silhouette */
 .portrait-frame::before {
   content: "";
   position: absolute;
-  inset: -15%;
-  background: radial-gradient(circle at center, var(--glow-gold) 0%, var(--glow-burgundy) 50%, transparent 75%);
-  filter: blur(clamp(30px, 8vw, 60px));
+  inset: 10%; /* Smaller than the image so it acts as a core light source */
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--glow-gold) 0%, var(--glow-burgundy) 50%, transparent 80%);
+  filter: blur(clamp(40px, 10vw, 80px));
   z-index: -1;
-  opacity: 0.65;
+  opacity: 0.85;
   pointer-events: none;
-  transform: translateZ(-50px);
-}
-
-/* Fading border blend (vignette overlay) */
-.portrait-frame::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 24px;
-  background: radial-gradient(ellipse at center, transparent 40%, var(--bg) 95%);
-  pointer-events: none;
-  z-index: 2;
 }
 
 .portrait-frame img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   pointer-events: none;
-  border-radius: 24px;
   display: block;
+  
+  /* Silhouette edge glow */
+  filter: 
+    drop-shadow(0 0 15px rgba(var(--glow-gold-rgb), 0.4))
+    drop-shadow(0 0 40px rgba(var(--glow-burgundy-rgb), 0.3));
+
+  /* Bottom fade out into the background */
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
 }
