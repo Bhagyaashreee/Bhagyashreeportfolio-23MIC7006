@@ -3,25 +3,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 3rem;
   padding-top: 6rem;
   position: relative;
   z-index: 10;
 }
 .hero-left {
   flex: 1;
-  max-width: 600px;
+  max-width: 650px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .hero-title {
-  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  font-size: clamp(4rem, 7.5vw, 7.5rem);
   line-height: 1.05;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
 }
 .hero-role {
   font-family: var(--font-sans);
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   color: var(--text);
   font-weight: 400;
   margin-bottom: 1.5rem;
@@ -81,4 +83,36 @@
   /* Bottom fade out into the background */
   -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    gap: 4rem;
+  }
+  .hero-left {
+    align-items: center;
+    max-width: 100%;
+  }
+  .hero-title {
+    font-size: clamp(3rem, 12vw, 4rem);
+  }
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-right {
+    justify-content: center;
+    width: 100%;
+  }
+  .portrait-frame {
+    max-width: 85%;
+    margin-top: 2rem;
+  }
 }
