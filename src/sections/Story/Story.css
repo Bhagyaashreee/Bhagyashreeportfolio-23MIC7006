@@ -2,55 +2,97 @@
   padding: 8rem 5%;
   position: relative;
   z-index: 5;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 6rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
-.about-visual {
-  position: relative;
-}
-.abstract-shape {
+
+.about-content {
   width: 100%;
-  aspect-ratio: 4/5;
-  border-radius: 1000px;
-  overflow: hidden;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 40px rgba(74, 14, 26, 0.2);
+  max-width: 1400px;
 }
-.abstract-shape img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  width: 80%; /* Spans 80% as requested */
+  margin: 0 auto;
 }
-.about-text p {
+
+.about-left, .about-right {
+  max-width: 750px;
+}
+
+.about-p {
   font-size: 1.15rem;
   color: var(--muted);
   margin-bottom: 1.5rem;
-}
-
-.tech-strip {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-.tech-strip-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
-}
-.strip-items {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  color: var(--text);
   line-height: 1.8;
 }
-.strip-items span {
-  color: rgba(214, 181, 110, 0.4);
-  margin: 0 0.5rem;
-  font-size: 0.8rem;
+
+.drives-me {
+  margin-top: 2rem;
+  padding: 2.5rem;
+  border-radius: 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
+
+.drives-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.drives-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drives-list li {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.drives-list li:last-child {
+  margin-bottom: 0;
+}
+
+.drives-list li::before {
+  content: '•';
+  color: var(--gold);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    width: 90%;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .drives-me {
+    padding: 2rem;
+  }
+}
+

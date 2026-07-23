@@ -47,9 +47,9 @@ export default function Contact() {
             or just want to say hello—my inbox is always open. Let's create secure, intelligent solutions together.
           </p>
           <div className="elegant-socials">
-            <Magnetic><a href="mailto:jagadiesh0009@gmail.com" data-cursor="link">jagadiesh0009@gmail.com</a></Magnetic>
-            <Magnetic><a href="#" data-cursor="link">LinkedIn</a></Magnetic>
-            <Magnetic><a href="#" data-cursor="link">GitHub</a></Magnetic>
+            <Magnetic><a href="mailto:shreebhagyaaa@gmail.com" data-cursor="link">shreebhagyaaa@gmail.com</a></Magnetic>
+            <Magnetic><a href="https://www.linkedin.com/in/bhagyashree-satpathy-3355a9361/" target="_blank" rel="noopener noreferrer" data-cursor="link">LinkedIn</a></Magnetic>
+            <Magnetic><a href="https://github.com/Bhagyaashreee" target="_blank" rel="noopener noreferrer" data-cursor="link">GitHub</a></Magnetic>
           </div>
         </Reveal>
 

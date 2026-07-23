@@ -5,25 +5,30 @@ export default function Story() {
   return (
     <section id="about" className="about container">
       <Reveal delay={0.2} className="about-content">
-        <div className="subtitle">The Story</div>
-        <h2 className="section-title" style={{ textAlign: "left", marginBottom: "2rem" }}>
-          Designing <span className="serif gold">Secure</span> &amp; Intelligent Futures.
-        </h2>
-        <div className="about-text">
-          <p>
-            I'm an aspiring software engineer with interests spanning Machine Learning, Cybersecurity, and Full Stack Development. My experience through 
-            academics and internships has given me a versatile skill set to build robust digital solutions.
-          </p>
-          <p>
-            From predicting real estate trends using machine learning to deploying secure encryption algorithms for data storage, 
-            I thrive at the intersection of intelligence and security. My goal is to craft systems that are not just functional, but deeply reliable.
-          </p>
-        </div>
-
-        <div className="tech-strip">
-          <span className="tech-strip-label">Core Technologies</span>
-          <div className="strip-items">
-            Python <span>•</span> Java <span>•</span> JavaScript <span>•</span> HTML <span>•</span> CSS <span>•</span> Scikit-learn <span>•</span> Pandas <span>•</span> Nmap <span>•</span> Wireshark
+        <div className="about-grid">
+          <div className="about-left">
+            <div className="subtitle">The Story</div>
+            <h2 className="section-title" style={{ textAlign: "left", marginBottom: "2rem" }}>
+              Designing <span className="serif gold">Secure</span> &amp; Intelligent Futures.
+            </h2>
+            <p className="about-p">
+              I'm Bhagyashree, an aspiring Software Engineer passionate about building secure, scalable, and intelligent digital experiences. My interests span Full Stack Development, Cybersecurity, Artificial Intelligence, and Machine Learning, allowing me to solve real-world problems through technology.
+            </p>
+          </div>
+          <div className="about-right">
+            <p className="about-p">
+              I enjoy transforming ideas into reliable applications with clean architecture, modern development practices, and user-focused design. Every project strengthens my ability to learn quickly, collaborate effectively, and build software that creates meaningful impact.
+            </p>
+            <div className="drives-me">
+              <h3 className="drives-title">What Drives Me</h3>
+              <ul className="drives-list">
+                <li>Building software that solves practical problems.</li>
+                <li>Continuously learning modern technologies.</li>
+                <li>Writing clean, maintainable code.</li>
+                <li>Exploring AI-powered applications.</li>
+                <li>Creating secure and scalable systems.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </Reveal>
