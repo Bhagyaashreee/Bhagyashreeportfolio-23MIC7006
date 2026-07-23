@@ -1,31 +1,36 @@
-.tools-section { padding: 8rem 5%; position: relative; z-index: 5; }
-.tools-subtitle { text-align: center; color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: -2rem auto 4rem; line-height: 1.6; font-style: italic; }
+.tools-section { padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 5%); position: relative; z-index: 5; }
+.tools-subtitle { text-align: center; color: var(--muted); font-size: clamp(0.95rem, 2vw, 1.1rem); max-width: 600px; margin: -2rem auto clamp(2rem, 5vw, 4rem); line-height: 1.6; font-style: italic; }
 
 .tools-grid {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); 
+  gap: clamp(1rem, 3vw, 1.5rem); 
+  max-width: 1000px; 
+  margin: 0 auto;
 }
 .tool-card {
-  flex: 1 1 calc(33.333% - 1.5rem);
-  min-width: 250px;
-  padding: 2.5rem 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2rem);
   text-align: center;
+  border-radius: 16px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   transition: transform 0.4s var(--ease), border-color 0.4s, box-shadow 0.4s;
+  height: 100%;
 }
-.tool-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(214, 181, 110, 0.4);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+@media (hover: hover) {
+  .tool-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(214, 181, 110, 0.4);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
 }
 .tool-cat {
-  font-family: var(--font-serif); font-size: 1.35rem; color: var(--gold); margin-bottom: 0.75rem; font-weight: 400;
+  font-family: var(--font-serif); font-size: clamp(1.15rem, 2.5vw, 1.35rem); color: var(--gold); margin-bottom: 0.75rem; font-weight: 400;
 }
 .tool-items {
-  font-family: var(--font-sans); font-size: 0.95rem; color: var(--text); line-height: 1.6;
+  font-family: var(--font-sans); font-size: clamp(0.85rem, 2vw, 0.95rem); color: var(--text); line-height: 1.6;
 }
 .tool-items span {
   color: rgba(214, 181, 110, 0.5); margin: 0 0.35rem; font-size: 0.8rem;
 }
 
-@media (max-width: 768px) {
-  .tool-card { flex: 1 1 100%; }
-}

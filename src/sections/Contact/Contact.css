@@ -1,21 +1,22 @@
-.lets-build { padding: 8rem 5% 10rem; position: relative; background: var(--bg); z-index: 10; border-top: 1px solid rgba(255,255,255,0.05); }
-.contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; max-width: 1200px; margin: 0 auto; }
-.contact-info h2 { font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 2rem; line-height: 1.1; }
-.contact-info p { font-size: 1.1rem; color: var(--muted); margin-bottom: 3rem; max-width: 450px; }
+.lets-build { padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 5%) clamp(5rem, 15vw, 10rem); position: relative; background: var(--bg); z-index: 10; border-top: 1px solid rgba(255,255,255,0.05); }
+.contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: clamp(3rem, 6vw, 6rem); align-items: center; max-width: 1200px; margin: 0 auto; }
+.contact-info h2 { font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: clamp(1rem, 3vw, 2rem); line-height: 1.1; word-wrap: break-word; }
+.contact-info p { font-size: clamp(0.95rem, 2vw, 1.1rem); color: var(--muted); margin-bottom: clamp(2rem, 5vw, 3rem); max-width: 450px; line-height: 1.6; }
 
-.elegant-socials { display: flex; flex-direction: column; gap: 1.5rem; }
-.elegant-socials a { font-family: var(--font-serif); font-size: 1.25rem; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: opacity 0.3s; }
+.elegant-socials { display: flex; flex-direction: column; gap: clamp(1rem, 3vw, 1.5rem); }
+.elegant-socials a { font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.25rem); color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: opacity 0.3s; word-break: break-all; }
 .elegant-socials a:hover { opacity: 0.7; }
 .elegant-socials a::after { content: '→'; font-family: var(--font-sans); font-size: 0.9rem; }
 
 .glass-form {
   background: var(--glass); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--glass-border); padding: 3rem; border-radius: 24px; display: flex; flex-direction: column; gap: 1.5rem;
+  border: 1px solid var(--glass-border); padding: clamp(1.5rem, 4vw, 3rem); border-radius: 24px; display: flex; flex-direction: column; gap: clamp(1rem, 3vw, 1.5rem);
+  width: 100%; box-sizing: border-box;
 }
-.form-group { display: flex; flex-direction: column; }
+.form-group { display: flex; flex-direction: column; width: 100%; }
 .glass-form input, .glass-form textarea {
-  width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-  padding: 1rem 1.5rem; border-radius: 12px; color: var(--text); font-family: var(--font-sans); font-size: 1rem; transition: border-color 0.3s, background 0.3s;
+  width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem); border-radius: 12px; color: var(--text); font-family: var(--font-sans); font-size: clamp(0.9rem, 2vw, 1rem); transition: border-color 0.3s, background 0.3s;
 }
 .glass-form input:focus, .glass-form textarea:focus { outline: none; border-color: var(--gold); background: rgba(255,255,255,0.08); }
 .glass-form textarea { resize: vertical; min-height: 120px; }
@@ -23,15 +24,15 @@
 .loader { border: 2px solid rgba(255,255,255,0.3); border-top: 2px solid var(--bg); border-radius: 50%; width: 20px; height: 20px; animation: spinLoader 1s linear infinite; display: inline-block; }
 
 .toast {
-  position: fixed; bottom: 2rem; right: 2rem; padding: 1rem 2rem; border-radius: 100px; font-family: var(--font-sans); font-size: 0.9rem; color: #fff;
-  transform: translateY(100px); opacity: 0; transition: transform 0.4s var(--ease), opacity 0.4s var(--ease); z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  position: fixed; bottom: clamp(1rem, 3vw, 2rem); right: clamp(1rem, 3vw, 2rem); padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem); border-radius: 100px; font-family: var(--font-sans); font-size: clamp(0.8rem, 2vw, 0.9rem); color: #fff;
+  transform: translateY(100px); opacity: 0; transition: transform 0.4s var(--ease), opacity 0.4s var(--ease); z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-width: calc(100vw - 2rem);
 }
 .toast.show { transform: translateY(0); opacity: 1; }
 .toast-success { background: #10B981; }
 .toast-error { background: #EF4444; }
 
 @media (max-width: 1024px) {
-  .contact-container { grid-template-columns: 1fr; text-align: center; gap: 4rem; }
+  .contact-container { text-align: center; gap: 4rem; }
   .contact-info p { margin-inline: auto; }
   .elegant-socials { flex-direction: row; justify-content: center; flex-wrap: wrap; }
 }

@@ -7,10 +7,10 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-serif); font-weight: 400; color
 
 /* Section Typography */
 .subtitle {
-  font-family: var(--font-mono); font-size: 0.85rem; color: var(--gold);
-  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;
-  display: flex; align-items: center; gap: 1rem;
+  font-family: var(--font-mono); font-size: clamp(0.75rem, 2vw, 0.85rem); color: var(--gold);
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  display: flex; align-items: center; gap: clamp(0.5rem, 2vw, 1rem);
 }
-.subtitle::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+.subtitle::before { content: ''; display: block; width: clamp(20px, 5vw, 40px); height: 1px; background: var(--gold); }
 
-.section-title { font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.1; margin-bottom: 4rem; text-align: center; }
+.section-title { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.1; margin-bottom: clamp(2rem, 6vw, 4rem); text-align: center; word-break: break-word; }

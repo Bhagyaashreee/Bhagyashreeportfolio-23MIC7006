@@ -1,5 +1,5 @@
 .about {
-  padding: 8rem 5%;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 5%);
   position: relative;
   z-index: 5;
   display: flex;
@@ -14,26 +14,26 @@
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  width: 80%; /* Spans 80% as requested */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+  width: clamp(90%, 80vw, 1200px);
   margin: 0 auto;
 }
 
 .about-left, .about-right {
-  max-width: 750px;
+  max-width: 100%;
 }
 
 .about-p {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
   color: var(--muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
   line-height: 1.8;
 }
 
 .drives-me {
-  margin-top: 2rem;
-  padding: 2.5rem;
+  margin-top: clamp(1.5rem, 4vw, 2rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   border-radius: 20px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -44,9 +44,9 @@
 
 .drives-title {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   color: var(--gold);
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
 }
 
 .drives-list {
@@ -56,9 +56,9 @@
 }
 
 .drives-list li {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
   padding-left: 1.5rem;
   position: relative;
   line-height: 1.6;
@@ -78,21 +78,14 @@
 
 @media (max-width: 1024px) {
   .about-grid {
-    width: 90%;
     grid-template-columns: 1.5fr 1fr;
-    gap: 3rem;
   }
 }
 
 @media (max-width: 768px) {
   .about-grid {
-    width: 100%;
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  
-  .drives-me {
-    padding: 2rem;
+    width: 100%;
   }
 }
 
